@@ -59,15 +59,16 @@ def samples(catidx):
         'properties': {
             'inputstream.adaptive.license_type': '',
             'inputstream.adaptive.license_key': '',
-            'inputstream.adaptive.manifest_type': '',
-            'inputstreamaddon': 'inputstream.adaptive'
+            'inputstream.adaptive.manifest_type': ''
         }
     }
 
     if ('extension' in obj):
       if (obj['extension']) == 'mpd':
+        item['properties']['inputstreamaddon'] = 'inputstream.adaptive'
         item['properties']['inputstream.adaptive.manifest_type'] = 'mpd'
       elif (obj['drm_scheme']) == 'ism':
+        item['properties']['inputstreamaddon'] = 'inputstream.adaptive'
         item['properties']['inputstream.adaptive.manifest_type'] = 'ism'
 
     if ('drm_scheme' in obj):
